@@ -3,546 +3,1135 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>出雲米米クラブ｜1年かけてお米をつくる</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+  <title>出雲米米クラブ | 1年かけてお米をつくる</title>
+  <meta name="description" content="出雲米米クラブは、親子で田んぼに入り、種まきから新米の羽釜炊きまでを体験する年間プログラムです。2026年度の参加者を募集しています。">
+  <meta name="theme-color" content="#48640f">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="出雲米米クラブ | 1年かけてお米をつくる">
+  <meta property="og:description" content="出雲の田んぼで、土に触れ、米を育て、できた新米をみんなで味わう年間プログラム。">
+  <meta property="og:image" content="チラシ/表面.png">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #f8f3e1;
+      --paper: #fbf7ea;
+      --surface: #fffdf7;
+      --ink: #22180f;
+      --muted: #5d523f;
+      --green: #5b7818;
+      --green-deep: #44620f;
+      --yellow: #e6ef21;
+      --orange: #d98a1e;
+      --stone: #ddd7d1;
+      --line: rgba(65, 49, 17, 0.1);
+      --shadow: 0 24px 60px rgba(65, 49, 17, 0.12);
+      --max: 1140px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
-      font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
-      background: #fdf8e8;
-      color: #3a2e0f;
-    }
-
-    /* ===== HERO ===== */
-    .hero {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      overflow: hidden;
-      padding: 40px 20px 100px;
-    }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background-image: url('チラシ/表面.png');
-      background-size: cover;
-      background-position: center 30%;
-      filter: brightness(0.45);
-      z-index: 0;
-    }
-
-    /* 放射線装飾 */
-    .hero-rays {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      background: repeating-conic-gradient(
-        rgba(255,230,100,0.06) 0deg 10deg,
-        transparent 10deg 20deg
-      );
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-badge {
-      display: inline-block;
-      background: #e8951a;
-      color: #fff;
-      font-size: 0.9rem;
-      font-weight: 700;
-      padding: 6px 22px;
-      border-radius: 30px;
-      margin-bottom: 22px;
-      letter-spacing: 0.08em;
-    }
-
-    .hero h1 {
-      font-size: clamp(2.8rem, 8vw, 5rem);
-      font-weight: 900;
-      line-height: 1.15;
-      color: #fff5c0;
-      text-shadow: 0 3px 12px rgba(0,0,0,0.5), 0 0 40px rgba(255,200,0,0.3);
-      margin-bottom: 16px;
-      letter-spacing: 0.02em;
-    }
-
-    .hero .sub {
-      font-size: clamp(1rem, 2.5vw, 1.3rem);
-      color: #fff;
-      font-weight: 700;
-      margin-bottom: 16px;
-      text-shadow: 0 2px 6px rgba(0,0,0,0.6);
-    }
-
-    .hero .catch {
-      display: inline-block;
-      background: rgba(255,255,255,0.15);
-      border: 2px solid rgba(255,230,100,0.6);
-      color: #fff5c0;
-      font-size: clamp(1rem, 2.5vw, 1.2rem);
-      font-weight: 700;
-      padding: 10px 28px;
-      border-radius: 8px;
-      margin-bottom: 36px;
-      letter-spacing: 0.05em;
-    }
-
-    .hero .cta-btn {
-      display: inline-block;
-      background: #e8951a;
-      color: #fff;
-      font-size: 1.2rem;
-      font-weight: 900;
-      padding: 18px 56px;
-      border-radius: 50px;
-      text-decoration: none;
-      box-shadow: 0 4px 0 #b5700d, 0 6px 20px rgba(0,0,0,0.3);
-      transition: transform 0.1s, box-shadow 0.1s;
-      letter-spacing: 0.08em;
-    }
-    .hero .cta-btn:hover {
-      transform: translateY(2px);
-      box-shadow: 0 2px 0 #b5700d, 0 4px 12px rgba(0,0,0,0.3);
-    }
-
-    .hero .deadline {
-      margin-top: 16px;
-      color: rgba(255,255,255,0.85);
-      font-size: 0.88rem;
-      font-weight: 700;
-    }
-
-    .wave-bottom {
-      position: absolute;
-      bottom: -2px; left: 0; right: 0;
-      z-index: 3;
-    }
-
-    /* ===== 概要 ===== */
-    .overview {
-      background: #fdf8e8;
-      padding: 56px 20px 40px;
-    }
-    .overview .container { max-width: 860px; margin: 0 auto; }
-
-    .overview-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
-      gap: 12px;
-    }
-
-    .overview-item {
-      background: #fff;
-      border: 2px solid #e8d89a;
-      border-radius: 12px;
-      padding: 18px 14px;
-      text-align: center;
-    }
-
-    .overview-item .label {
-      display: inline-block;
-      background: #e8951a;
-      color: #fff;
-      font-size: 0.78rem;
-      font-weight: 700;
-      padding: 3px 14px;
-      border-radius: 20px;
-      margin-bottom: 10px;
-      letter-spacing: 0.05em;
-    }
-
-    .overview-item .value {
-      font-size: 1rem;
-      font-weight: 700;
-      color: #3a2e0f;
-      line-height: 1.5;
-    }
-
-    .overview-item .note {
-      font-size: 0.75rem;
-      color: #8a7840;
-      margin-top: 4px;
-      line-height: 1.4;
-    }
-
-    /* ===== セクション共通 ===== */
-    section { padding: 50px 20px; }
-    .container { max-width: 860px; margin: 0 auto; }
-
-    .section-heading {
-      text-align: center;
-      margin-bottom: 32px;
-    }
-
-    .section-heading .jp-title {
-      display: inline-block;
-      font-size: 1.55rem;
-      font-weight: 900;
-      color: #3a6b1a;
-      position: relative;
-      padding: 0 48px;
-    }
-
-    .section-heading .jp-title::before,
-    .section-heading .jp-title::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      width: 36px;
-      height: 3px;
-      background: #a8c060;
-      transform: translateY(-50%);
-    }
-    .section-heading .jp-title::before { right: 100%; margin-right: -36px; }
-    .section-heading .jp-title::after  { left: 100%;  margin-left: -36px; }
-
-    /* ===== プログラム ===== */
-    .program-section { background: #f0f4e0; }
-
-    .program-note {
-      background: #fff;
-      border-left: 4px solid #a8c060;
-      border-radius: 0 8px 8px 0;
-      padding: 12px 16px;
-      font-size: 0.85rem;
-      color: #5a5030;
-      margin-bottom: 24px;
+      font-family: "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fcf9ef 0%, #f8f3e1 100%);
       line-height: 1.7;
     }
 
-    .program-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
-      gap: 12px;
+    a {
+      color: inherit;
     }
 
-    .program-card {
-      background: #fff;
-      border: 2px solid #c8d888;
-      border-radius: 12px;
-      padding: 16px 14px;
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(calc(100% - 28px), var(--max));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(251, 247, 234, 0.9);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(68, 98, 15, 0.08);
+    }
+
+    .site-header-inner {
       display: flex;
-      gap: 12px;
-      align-items: flex-start;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 14px 0;
     }
 
-    .program-card .num-badge {
-      flex-shrink: 0;
-      background: #6a9a20;
-      color: #fff;
-      font-size: 0.8rem;
+    .brand {
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      display: block;
+      color: var(--green-deep);
       font-weight: 900;
-      width: 28px; height: 28px;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
+      font-size: 0.76rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
     }
 
-    .program-card .info .date {
-      font-size: 0.78rem;
-      color: #7a6a30;
-      margin-bottom: 3px;
+    .brand-name {
+      display: block;
+      font-size: 1.1rem;
+      font-weight: 900;
+      letter-spacing: 0.04em;
     }
 
-    .program-card .info .title {
-      font-size: 0.9rem;
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      color: var(--muted);
       font-weight: 700;
-      color: #3a2e0f;
-      line-height: 1.4;
+      font-size: 0.94rem;
     }
 
-    /* ===== 実体験内容 ===== */
-    .experience-section { background: #fdf8e8; }
-
-    .experience-list {
-      list-style: none;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 12px;
+    .nav-links a {
+      text-decoration: none;
     }
 
-    .experience-list li {
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--green-deep);
+    }
+
+    .nav-cta,
+    .button-primary,
+    .button-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 22px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 900;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .nav-cta,
+    .button-secondary {
       background: #fff;
-      border: 2px solid #e8d89a;
-      border-radius: 12px;
-      padding: 16px 18px 16px 46px;
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: #3a2e0f;
-      position: relative;
-      line-height: 1.5;
+      border: 2px solid rgba(68, 98, 15, 0.14);
+      color: var(--green-deep);
+      box-shadow: 0 12px 30px rgba(68, 98, 15, 0.1);
     }
 
-    .experience-list li::before {
-      content: '🌾';
+    .button-primary {
+      background: linear-gradient(180deg, #e6a03a 0%, #d98a1e 100%);
+      color: #fff;
+      box-shadow: 0 16px 32px rgba(217, 138, 30, 0.24);
+    }
+
+    .nav-cta:hover,
+    .button-primary:hover,
+    .button-secondary:hover,
+    .nav-cta:focus-visible,
+    .button-primary:focus-visible,
+    .button-secondary:focus-visible {
+      transform: translateY(-1px);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 28px 0 38px;
+    }
+
+    .hero::before {
+      content: "";
       position: absolute;
-      left: 14px;
-      top: 14px;
+      inset: 0 0 118px;
+      background: linear-gradient(180deg, #d6e4b8 0%, #c8d9a0 60%, #ddd7c8 100%);
+      border-bottom-left-radius: 44px;
+      border-bottom-right-radius: 44px;
+      z-index: 0;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 160px;
+      background:
+        radial-gradient(circle at 6% 100%, var(--paper) 0 80px, transparent 81px),
+        radial-gradient(circle at 19% 100%, var(--paper) 0 102px, transparent 103px),
+        radial-gradient(circle at 34% 100%, var(--paper) 0 88px, transparent 89px),
+        radial-gradient(circle at 50% 100%, var(--paper) 0 108px, transparent 109px),
+        radial-gradient(circle at 67% 100%, var(--paper) 0 86px, transparent 87px),
+        radial-gradient(circle at 83% 100%, var(--paper) 0 104px, transparent 105px),
+        radial-gradient(circle at 97% 100%, var(--paper) 0 78px, transparent 79px);
+      z-index: 0;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.03fr) minmax(320px, 0.97fr);
+      gap: 34px;
+      align-items: end;
+    }
+
+    .hero-copy {
+      position: relative;
+      min-width: 0;
+      padding-top: 36px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.88);
+      border: 2px solid rgba(68, 98, 15, 0.12);
+      color: var(--green-deep);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      margin-bottom: 14px;
+    }
+
+    .hero-title-main,
+    .hero-title-sub {
+      display: block;
+      color: var(--green-deep);
+      font-weight: 900;
+      line-height: 1.03;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-title-main {
+      font-size: clamp(3rem, 7.3vw, 6.2rem);
+    }
+
+    .hero-title-sub {
+      font-size: clamp(3.4rem, 8vw, 6.8rem);
+      margin-top: 8px;
+    }
+
+    .hero-tagline {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 4px 10px;
+      color: var(--muted);
+      font-size: clamp(1.2rem, 2.6vw, 2rem);
+      font-weight: 900;
+    }
+
+    .hero-lead {
+      max-width: 38rem;
+      margin-bottom: 22px;
+      color: #2f2a22;
+      font-size: clamp(1rem, 2vw, 1.08rem);
+      font-weight: 700;
+    }
+
+    .hero-highlight {
+      display: inline-block;
+      margin-bottom: 22px;
+      padding: 16px 18px;
+      border-radius: 26px;
+      background: rgba(239, 234, 228, 0.96);
+      box-shadow: var(--shadow);
+      font-weight: 900;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .hero-meta-card {
+      padding: 18px 18px 16px;
+      border-radius: 28px;
+      background: rgba(251, 247, 234, 0.95);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-meta-card strong {
+      display: block;
+      color: var(--green-deep);
+      font-size: 0.84rem;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+    }
+
+    .hero-meta-card span {
+      display: block;
+      font-weight: 900;
+      line-height: 1.55;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-width: 0;
+    }
+
+    .floating-note {
+      position: absolute;
+      top: 26px;
+      right: -10px;
+      z-index: 2;
+      width: min(250px, 58%);
+      padding: 22px 18px;
+      border-radius: 28px;
+      background: rgba(239, 234, 228, 0.96);
+      box-shadow: var(--shadow);
+      transform: rotate(3deg);
+    }
+
+    .floating-note strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--green-deep);
+      font-size: 0.86rem;
+      letter-spacing: 0.08em;
+    }
+
+    .floating-note span {
+      display: block;
+      font-weight: 900;
+      line-height: 1.55;
+    }
+
+    .photo-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 40px;
+      box-shadow: 0 30px 54px rgba(65, 49, 17, 0.18);
+      background: #c6d598;
+    }
+
+    .photo-card img {
+      width: 100%;
+      min-height: 680px;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .photo-caption {
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      bottom: 24px;
+      padding: 20px 20px 18px;
+      border-radius: 28px;
+      background: rgba(239, 234, 228, 0.96);
+      box-shadow: 0 18px 34px rgba(65, 49, 17, 0.14);
+    }
+
+    .photo-caption strong {
+      display: block;
+      margin-bottom: 6px;
       font-size: 1rem;
     }
 
-    /* ===== ご注意事項 ===== */
-    .notes-section { background: #f0f4e0; }
+    .photo-caption span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
 
-    .notes-list {
-      list-style: none;
+    .content-section {
+      padding: 28px 0;
+    }
+
+    .section-frame {
+      padding: 34px;
+      border-radius: 36px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .section-top {
       display: flex;
-      flex-direction: column;
-      gap: 10px;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 24px;
     }
 
-    .notes-list li {
-      background: #fff;
-      border-radius: 8px;
-      padding: 12px 16px 12px 44px;
-      font-size: 0.9rem;
-      color: #4a4030;
-      line-height: 1.65;
-      position: relative;
-    }
-
-    .notes-list li::before {
-      content: '●';
-      position: absolute;
-      left: 18px;
-      top: 15px;
-      color: #a8c060;
-      font-size: 0.65rem;
-    }
-
-    /* ===== CTA下部 ===== */
-    .cta-section {
-      background: #3a6b1a;
-      color: #fff;
-      text-align: center;
-      padding: 70px 20px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .cta-section::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: repeating-conic-gradient(
-        rgba(255,255,255,0.03) 0deg 10deg,
-        transparent 10deg 20deg
-      );
-    }
-
-    .cta-section .inner { position: relative; z-index: 1; }
-
-    .cta-section h2 {
-      font-size: clamp(1.5rem, 4vw, 2rem);
+    .section-kicker {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--green-deep);
+      font-size: 0.84rem;
       font-weight: 900;
-      margin-bottom: 12px;
-      color: #fff5c0;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
     }
 
-    .cta-section p {
+    .section-title {
+      color: var(--green-deep);
+      font-size: clamp(1.9rem, 3.3vw, 3.1rem);
+      line-height: 1.15;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+    }
+
+    .section-note {
+      max-width: 27rem;
+      color: var(--muted);
       font-size: 0.95rem;
-      opacity: 0.9;
-      margin-bottom: 32px;
-      line-height: 1.8;
+      font-weight: 700;
     }
 
-    .cta-section .cta-btn {
-      display: inline-block;
-      background: #e8951a;
-      color: #fff;
-      font-size: 1.2rem;
+    .summary-grid,
+    .feature-grid,
+    .steps-grid,
+    .faq-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .summary-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px 22px;
+    }
+
+    .summary-card,
+    .feature-card,
+    .step-card,
+    .faq-card,
+    .contact-card {
+      background: var(--surface);
+      border-radius: 30px;
+      box-shadow: 0 12px 28px rgba(65, 49, 17, 0.06);
+    }
+
+    .summary-card {
+      display: grid;
+      grid-template-columns: 116px minmax(0, 1fr);
+      align-items: center;
+      gap: 18px;
+      padding: 22px;
+    }
+
+    .summary-card strong {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 62px;
+      background: var(--yellow);
+      color: #000;
+      font-size: 1.08rem;
       font-weight: 900;
-      padding: 18px 56px;
-      border-radius: 50px;
-      text-decoration: none;
-      box-shadow: 0 4px 0 #b5700d, 0 6px 20px rgba(0,0,0,0.3);
-      transition: transform 0.1s, box-shadow 0.1s;
-      letter-spacing: 0.08em;
-    }
-    .cta-section .cta-btn:hover {
-      transform: translateY(2px);
-      box-shadow: 0 2px 0 #b5700d;
+      letter-spacing: 0.06em;
     }
 
-    .cta-section .contact {
+    .summary-card span {
+      display: block;
+      font-size: 1.18rem;
+      font-weight: 900;
+      line-height: 1.55;
+    }
+
+    .story-block {
+      display: grid;
+      grid-template-columns: minmax(0, 0.94fr) minmax(280px, 0.86fr);
+      gap: 22px;
       margin-top: 28px;
-      font-size: 0.85rem;
-      opacity: 0.8;
     }
-    .cta-section .contact a { color: #fff5c0; }
 
-    /* ===== Footer ===== */
-    footer {
-      background: #2a4a10;
-      color: rgba(255,255,255,0.55);
+    .story-panel {
+      padding: 26px;
+      border-radius: 30px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.84) 0%, rgba(250, 245, 233, 0.96) 100%);
+      border: 1px solid rgba(68, 98, 15, 0.08);
+    }
+
+    .story-panel p + p {
+      margin-top: 12px;
+    }
+
+    .story-list {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .story-list li {
+      position: relative;
+      padding-left: 34px;
+      color: var(--muted);
+      font-weight: 900;
+    }
+
+    .story-list li::before {
+      content: "01";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--green-deep);
+      font-weight: 900;
+    }
+
+    .story-list li:nth-child(2)::before { content: "02"; }
+    .story-list li:nth-child(3)::before { content: "03"; }
+
+    .feature-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .feature-card {
+      padding: 26px 24px;
+      background: var(--stone);
+    }
+
+    .feature-card strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1.16rem;
+      line-height: 1.4;
+    }
+
+    .feature-card p {
+      color: #2f261b;
+      font-size: 0.98rem;
+      font-weight: 800;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .timeline-item {
+      min-height: 252px;
+      padding: 26px 20px 22px;
+      border-radius: 38px;
+      background: var(--stone);
       text-align: center;
-      padding: 24px 20px;
-      font-size: 0.8rem;
     }
 
-    @media (max-width: 600px) {
-      .hero h1 { font-size: 2.8rem; }
-      .section-heading .jp-title { padding: 0 16px; }
-      .section-heading .jp-title::before,
-      .section-heading .jp-title::after { display: none; }
+    .timeline-date {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 1.08rem;
+      font-weight: 900;
+      line-height: 1.25;
+    }
+
+    .timeline-body strong {
+      display: block;
+      font-size: 1.08rem;
+      line-height: 1.45;
+    }
+
+    .timeline-body p {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .steps-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .step-card {
+      padding: 24px;
+    }
+
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      margin-bottom: 14px;
+      border-radius: 50%;
+      background: var(--green-deep);
+      color: #fff;
+      font-weight: 900;
+    }
+
+    .step-card strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+
+    .step-card p {
+      color: var(--muted);
+      font-size: 0.94rem;
+      font-weight: 700;
+    }
+
+    .attention {
+      margin-top: 18px;
+      padding: 22px 24px;
+      border-radius: 26px;
+      background: rgba(255, 255, 255, 0.78);
+      font-weight: 800;
+    }
+
+    .faq-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .faq-card {
+      padding: 24px;
+    }
+
+    .faq-card strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--green-deep);
+      font-size: 1rem;
+    }
+
+    .faq-card p {
+      color: var(--muted);
+      font-size: 0.94rem;
+      font-weight: 700;
+    }
+
+    .contact-shell {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, 0.84fr);
+      gap: 18px;
+    }
+
+    .contact-card {
+      padding: 28px;
+    }
+
+    .contact-card p + p {
+      margin-top: 10px;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .footer {
+      margin-top: 18px;
+      padding: 28px 0 42px;
+      background: #2e2419;
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 0.92rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer small {
+      display: block;
+      color: rgba(255, 255, 255, 0.76);
+    }
+
+    @keyframes riseIn {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-copy > *,
+    .hero-visual > * {
+      animation: riseIn 0.7s ease both;
+    }
+
+    .hero-copy > *:nth-child(2) { animation-delay: 0.06s; }
+    .hero-copy > *:nth-child(3) { animation-delay: 0.12s; }
+    .hero-copy > *:nth-child(4) { animation-delay: 0.18s; }
+    .hero-copy > *:nth-child(5) { animation-delay: 0.24s; }
+    .hero-copy > *:nth-child(6) { animation-delay: 0.3s; }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .story-block,
+      .feature-grid,
+      .steps-grid,
+      .faq-grid,
+      .contact-shell {
+        grid-template-columns: 1fr;
+      }
+
+      .summary-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .section-top,
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .floating-note {
+        right: 12px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .site-header-inner,
+      .nav-links {
+        flex-wrap: wrap;
+      }
+
+      .hero {
+        padding-top: 24px;
+      }
+
+      .hero-meta {
+        grid-template-columns: 1fr;
+      }
+
+      .photo-card img {
+        min-height: 500px;
+      }
+
+      .section-frame {
+        padding: 24px 18px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .container {
+        width: min(calc(100% - 18px), var(--max));
+      }
+
+      .hero-title-main,
+      .hero-title-sub {
+        -webkit-text-stroke: 4px var(--green);
+      }
+
+      .hero-tagline {
+        font-size: 1.12rem;
+      }
+
+      .hero-actions,
+      .contact-actions {
+        flex-direction: column;
+      }
+
+      .nav-cta,
+      .button-primary,
+      .button-secondary {
+        width: 100%;
+      }
+
+      .summary-card {
+        grid-template-columns: 88px minmax(0, 1fr);
+        gap: 14px;
+      }
+
+      .summary-card strong {
+        min-height: 56px;
+        font-size: 0.96rem;
+      }
+
+      .timeline {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .hero-copy > *,
+      .hero-visual > * {
+        animation: none;
+      }
+
+      .nav-cta,
+      .button-primary,
+      .button-secondary {
+        transition: none;
+      }
     }
   </style>
 </head>
 <body>
-
-  <!-- ===== HERO ===== -->
-  <header class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-rays"></div>
-    <div class="hero-content">
-      <div class="hero-badge">2026年 参加者募集！</div>
-      <h1>1年かけて<br>お米をつくる</h1>
-      <p class="sub">本物の田んぼを実体験して経験に変える</p>
-      <p class="catch">自分で作ったお米を食べられる！</p>
-      <a href="https://docs.google.com/forms/d/1ZWIxD24dDVvsBDfHpaZr_kkOhHUpQE8OkZB9xWAw2k0/viewform" target="_blank" class="cta-btn">お申し込みはこちら</a>
-      <p class="deadline">申込締切：2026年4月15日</p>
+  <header class="site-header">
+    <div class="container site-header-inner">
+      <a class="brand" href="#top">
+        <span class="brand-mark">Izumo Komekome Club</span>
+        <span class="brand-name">出雲米米クラブ</span>
+      </a>
+      <nav class="nav-links" aria-label="ページ内リンク">
+        <a href="#about">クラブについて</a>
+        <a href="#schedule">年間プログラム</a>
+        <a href="#flow">参加の流れ</a>
+        <a href="#faq">よくある質問</a>
+      </nav>
+      <a class="nav-cta" href="https://docs.google.com/forms/d/1ZWIxD24dDVvsBDfHpaZr_kkOhHUpQE8OkZB9xWAw2k0/viewform" target="_blank" rel="noreferrer">申し込む</a>
     </div>
-    <svg class="wave-bottom" viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#fdf8e8"/>
-    </svg>
   </header>
 
-  <!-- ===== 概要 ===== -->
-  <section class="overview">
-    <div class="container">
-      <div class="overview-grid">
-        <div class="overview-item">
-          <div class="label">場所</div>
-          <div class="value">出西コミュニティセンター付近</div>
-          <div class="note">出雲市斐川町求院965</div>
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">2026年度 参加者募集中</div>
+          <h1>
+            <span class="hero-title-main">1年かけて</span>
+            <span class="hero-title-sub">お米をつくる</span>
+          </h1>
+          <p class="hero-tagline">本物の田んぼを実体験して経験に変える</p>
+          <p class="hero-lead">
+            出雲米米クラブは、田んぼに入るところから新米を食べるところまで、
+            お米づくりの一年を親子で一緒に体験するクラブです。
+            チラシの印象そのままに、空の明るさと田んぼの力強さが伝わるLPに整えました。
+          </p>
+          <p class="hero-highlight">
+            自分で作ったお米を食べられる。種まきから羽釜炊きまで、家族でたどる一年です。
+          </p>
+          <div class="hero-actions">
+            <a class="button-primary" href="https://docs.google.com/forms/d/1ZWIxD24dDVvsBDfHpaZr_kkOhHUpQE8OkZB9xWAw2k0/viewform" target="_blank" rel="noreferrer">参加申込みフォームへ</a>
+            <a class="button-secondary" href="#schedule">年間スケジュールを見る</a>
+          </div>
+          <div class="hero-meta">
+            <div class="hero-meta-card">
+              <strong>対象</strong>
+              <span>小学3年生以上の子どもと保護者</span>
+            </div>
+            <div class="hero-meta-card">
+              <strong>料金</strong>
+              <span>1家族 2,000円 / 月<br>5月から10月の全6ヶ月</span>
+            </div>
+            <div class="hero-meta-card">
+              <strong>定員</strong>
+              <span>先着20名</span>
+            </div>
+          </div>
         </div>
-        <div class="overview-item">
-          <div class="label">料金</div>
-          <div class="value">1家族 2,000円/月</div>
-          <div class="note">5〜10月の全6ヶ月<br>合計12,000円</div>
-        </div>
-        <div class="overview-item">
-          <div class="label">対象</div>
-          <div class="value">小学3年生以上と保護者</div>
-        </div>
-        <div class="overview-item">
-          <div class="label">定員</div>
-          <div class="value">先着20名</div>
-        </div>
-        <div class="overview-item">
-          <div class="label">時期</div>
-          <div class="value">2026年5月〜10月</div>
-          <div class="note">9時から約1時間</div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ===== プログラム ===== -->
-  <section class="program-section">
-    <div class="container">
-      <div class="section-heading">
-        <span class="jp-title">全9回の年間プログラム</span>
-      </div>
-      <div class="program-note">
-        9時〜10時頃の約1時間の開催予定（プログラムによって変動します）。
-        全日程に参加できなくても問題ありません。日程は天候等により変更になる場合があります。
-      </div>
-      <div class="program-grid">
-        <div class="program-card">
-          <div class="num-badge">1</div>
-          <div class="info"><div class="date">5月16日（土）</div><div class="title">ガイダンス・種まき</div></div>
-        </div>
-        <div class="program-card">
-          <div class="num-badge">2</div>
-          <div class="info"><div class="date">5月23日（土）</div><div class="title">疏通（見学）・苗管理</div></div>
-        </div>
-        <div class="program-card">
-          <div class="num-badge">3</div>
-          <div class="info"><div class="date">5月30日（土）</div><div class="title">代かき（見学）</div></div>
-        </div>
-        <div class="program-card">
-          <div class="num-badge">4</div>
-          <div class="info"><div class="date">6月7日（日）</div><div class="title">田植え</div></div>
-        </div>
-        <div class="program-card">
-          <div class="num-badge">5</div>
-          <div class="info"><div class="date">6月13日（土）</div><div class="title">除草剤散布・活着確認</div></div>
-        </div>
-        <div class="program-card">
-          <div class="num-badge">6</div>
-          <div class="info"><div class="date">7月11日（土）</div><div class="title">分げつ確認・中干し・走り水</div></div>
-        </div>
-        <div class="program-card">
-          <div class="num-badge">7</div>
-          <div class="info"><div class="date">8月1日（土）</div><div class="title">追肥・水のお話</div></div>
-        </div>
-        <div class="program-card">
-          <div class="num-badge">8</div>
-          <div class="info"><div class="date">10月3日（土）</div><div class="title">稲刈り・乾燥・もみすり（見学）</div></div>
-        </div>
-        <div class="program-card">
-          <div class="num-badge">9</div>
-          <div class="info"><div class="date">10月17日（土）</div><div class="title">新米の羽釜炊き</div></div>
+        <div class="hero-visual">
+          <div class="floating-note">
+            <strong>体験のゴール</strong>
+            <span>自分たちで育てたお米を、収穫後にみんなで味わいます。</span>
+          </div>
+          <figure class="photo-card">
+            <img src="チラシ/表面.png" alt="出雲米米クラブの募集チラシ">
+            <figcaption class="photo-caption">
+              <strong>田んぼの一年を、家族の思い出に。</strong>
+              <span>チラシの空気感を活かしながら、申し込みまで迷わない情報の流れに整理しています。</span>
+            </figcaption>
+          </figure>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===== 実体験内容 ===== -->
-  <section class="experience-section">
-    <div class="container">
-      <div class="section-heading">
-        <span class="jp-title">実体験内容</span>
+    <section class="content-section" id="about">
+      <div class="container section-frame">
+        <div class="section-top">
+          <div>
+            <span class="section-kicker">About</span>
+            <h2 class="section-title">出雲米米クラブについて</h2>
+          </div>
+          <p class="section-note">
+            チラシ表面の情報整理をそのままWebに移し、要点がすぐ伝わる構成にしています。
+          </p>
+        </div>
+
+        <div class="summary-grid">
+          <article class="summary-card">
+            <strong>場所</strong>
+            <span>出西コミュニティセンター付近<br>出雲市斐川町求院965</span>
+          </article>
+          <article class="summary-card">
+            <strong>料金</strong>
+            <span>1家族 2,000円 / 月<br>合計12,000円</span>
+          </article>
+          <article class="summary-card">
+            <strong>対象</strong>
+            <span>小学3年生以上と保護者</span>
+          </article>
+          <article class="summary-card">
+            <strong>時期</strong>
+            <span>2026年5月から10月<br>9時から約1時間</span>
+          </article>
+        </div>
+
+        <div class="story-block">
+          <div class="story-panel">
+            <p>
+              スーパーに並ぶ前のお米が、どんな手順を経て育つのか。
+              出雲米米クラブでは、ただ収穫するだけでなく、種まきから水管理、稲の成長観察までを
+              農家さんの言葉を聞きながら体験していきます。
+            </p>
+            <p>
+              農作業そのものの楽しさはもちろん、自然や食べものへの見方が変わるのもこの活動の魅力です。
+              子どもにとっても、大人にとっても、「食べる」が少し特別になります。
+            </p>
+          </div>
+          <ul class="story-list">
+            <li>本物の田んぼで、農作業の流れを実体験できます</li>
+            <li>トラクターや農機の見学を通して、農業の裏側も学べます</li>
+            <li>収穫後は自分たちが育てたお米を味わう時間までつながります</li>
+          </ul>
+        </div>
       </div>
-      <ul class="experience-list">
-        <li>田んぼの農作業を実体験</li>
-        <li>トラクター・農機の見学</li>
-        <li>作物の成長観察</li>
-        <li>収穫を実体験</li>
-        <li>自分で作ったお米を食べられる！<br><small style="font-weight:400;font-size:0.78rem;color:#8a7840">※収量は天候・生育状況により変動します</small></li>
-      </ul>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===== ご注意事項 ===== -->
-  <section class="notes-section">
-    <div class="container">
-      <div class="section-heading">
-        <span class="jp-title">ご注意事項</span>
+    <section class="content-section">
+      <div class="container section-frame">
+        <div class="section-top">
+          <div>
+            <span class="section-kicker">Experience</span>
+            <h2 class="section-title">このクラブでできること</h2>
+          </div>
+          <p class="section-note">
+            裏面チラシの「実体験内容」を、やわらかい角丸カードの見せ方に寄せています。
+          </p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <strong>田んぼでの農作業を実体験</strong>
+            <p>種まき、田植え、成長確認、稲刈りなど、お米づくりの節目を親子で体験します。</p>
+          </article>
+          <article class="feature-card">
+            <strong>トラクター・農機の見学</strong>
+            <p>作業の背景や機械の役割を知ることで、農業を立体的に理解できます。</p>
+          </article>
+          <article class="feature-card">
+            <strong>自分で作ったお米を味わう</strong>
+            <p>収穫したお米は参加家族で分け合い、最後は羽釜炊きで味わう予定です。</p>
+          </article>
+        </div>
       </div>
-      <ul class="notes-list">
-        <li>基本的に親子での参加を想定しています</li>
-        <li>農家・スタッフが常時見守り、イベント保険加入予定です</li>
-        <li>収穫したお米は参加家族で等分します（全体収量目安 約200kg・各家庭10kg程度の見込み）</li>
-        <li>当日は長袖、長ズボン、手袋、帽子、タオルをご持参ください</li>
-        <li>危険な機械操作は子どもとは行いません（希望者はスタッフ同乗のうえ見学する場合があります）</li>
-        <li>実施場所は作業内容により異なりますが、斐川西エリアが中心です</li>
-      </ul>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===== CTA下部 ===== -->
-  <section class="cta-section">
-    <div class="inner">
-      <h2>参加申し込みはこちら</h2>
-      <p>申込締切：<strong>2026年4月15日</strong><br>定員になり次第、締め切りとなります。</p>
-      <a href="https://docs.google.com/forms/d/1ZWIxD24dDVvsBDfHpaZr_kkOhHUpQE8OkZB9xWAw2k0/viewform" target="_blank" class="cta-btn">申し込みフォームへ</a>
-      <p class="contact">お問い合わせ：<a href="mailto:izumo.komekome@gmail.com">izumo.komekome@gmail.com</a></p>
-    </div>
-  </section>
+    <section class="content-section" id="schedule">
+      <div class="container section-frame">
+        <div class="section-top">
+          <div>
+            <span class="section-kicker">Schedule</span>
+            <h2 class="section-title">全9回の年間プログラム</h2>
+          </div>
+          <p class="section-note">
+            裏面チラシのカードレイアウトを参考に、日程が一目で追える一覧にしました。
+          </p>
+        </div>
 
-  <footer>
-    <p>主催：出雲米米クラブ（地元の農家と有志の団体）&nbsp;&nbsp;©︎ 2026</p>
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-date">1  5/16（土）</div>
+            <div class="timeline-body">
+              <strong>ガイダンス<br>種まき</strong>
+              <p>一年の流れを共有し、最初の作業として種まきを行います。</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-date">2  5/23（土）</div>
+            <div class="timeline-body">
+              <strong>疏通（見学）<br>苗管理</strong>
+              <p>苗の様子を見ながら、田植えに向けた準備を確認します。</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-date">3  5/30（土）</div>
+            <div class="timeline-body">
+              <strong>代かき（見学）</strong>
+              <p>田んぼの土と水を整える大切な工程を見学します。</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-date">4  6/7（日）</div>
+            <div class="timeline-body">
+              <strong>田植え</strong>
+              <p>田んぼに入って、苗を植える主役の回です。</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-date">5  6/13（土）</div>
+            <div class="timeline-body">
+              <strong>除草剤散布<br>活着確認</strong>
+              <p>苗がしっかり根付いたかを見ながら、初期管理を学びます。</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-date">6  7/11（土）</div>
+            <div class="timeline-body">
+              <strong>分げつ確認<br>中干し・走り水</strong>
+              <p>成長段階に応じた田んぼの変化と水管理の意味を体験します。</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-date">7  8/1（土）</div>
+            <div class="timeline-body">
+              <strong>追肥<br>水のお話</strong>
+              <p>より良く育てるための工夫と、田んぼの水の重要性を学びます。</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-date">8  10/3（土）</div>
+            <div class="timeline-body">
+              <strong>稲刈り・乾燥・<br>もみすり（見学）</strong>
+              <p>収穫の達成感と、お米になるまでの工程を知ります。</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-date">9  10/17（土）</div>
+            <div class="timeline-body">
+              <strong>新米の羽釜炊き</strong>
+              <p>最後はみんなで新米を味わい、一年の体験を締めくくります。</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="attention">
+          9時から10時頃の約1時間開催予定です。全日程および開催時間は天候等により変更となる場合があります。全ての日程にご参加いただかなくても問題ありません。
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="flow">
+      <div class="container section-frame">
+        <div class="section-top">
+          <div>
+            <span class="section-kicker">Flow</span>
+            <h2 class="section-title">参加までの流れ</h2>
+          </div>
+          <p class="section-note">
+            申し込みから初回参加まで、迷わず進められるように最小限の流れに整理しています。
+          </p>
+        </div>
+
+        <div class="steps-grid">
+          <article class="step-card">
+            <span class="step-number">1</span>
+            <strong>フォームから申込み</strong>
+            <p>Googleフォームから必要事項を入力して送信してください。</p>
+          </article>
+          <article class="step-card">
+            <span class="step-number">2</span>
+            <strong>参加案内を受け取る</strong>
+            <p>集合場所や持ち物、初回の詳細などを主催側からご案内します。</p>
+          </article>
+          <article class="step-card">
+            <span class="step-number">3</span>
+            <strong>田んぼで体験スタート</strong>
+            <p>当日は長袖、長ズボン、手袋、帽子、タオルなどをご準備のうえご参加ください。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="faq">
+      <div class="container section-frame">
+        <div class="section-top">
+          <div>
+            <span class="section-kicker">FAQ</span>
+            <h2 class="section-title">よくある質問</h2>
+          </div>
+          <p class="section-note">
+            チラシの注意事項をもとに、参加前に気になりやすい点を整理しています。
+          </p>
+        </div>
+
+        <div class="faq-grid">
+          <article class="faq-card">
+            <strong>毎回参加できなくても大丈夫ですか？</strong>
+            <p>大丈夫です。全日程に参加できなくても問題ない前提で運営されています。</p>
+          </article>
+          <article class="faq-card">
+            <strong>子どもだけで参加できますか？</strong>
+            <p>基本的には親子での参加を想定しています。小学3年生以上が対象です。</p>
+          </article>
+          <article class="faq-card">
+            <strong>安全面はどうなっていますか？</strong>
+            <p>農家・スタッフが見守り、イベント保険加入予定です。危険な機械操作は子どもと行いません。</p>
+          </article>
+          <article class="faq-card">
+            <strong>収穫したお米はどうなりますか？</strong>
+            <p>参加家族で等分する予定です。収量は天候や生育状況によって変動します。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="container section-frame">
+        <div class="contact-shell">
+          <article class="contact-card">
+            <span class="section-kicker">Contact</span>
+            <h2 class="section-title">参加申込み・お問い合わせ</h2>
+            <p>
+              定員に達し次第、募集終了となります。
+              参加をご希望の方は、申込みフォームからお早めにお申し込みください。
+            </p>
+            <div class="contact-actions">
+              <a class="button-primary" href="https://docs.google.com/forms/d/1ZWIxD24dDVvsBDfHpaZr_kkOhHUpQE8OkZB9xWAw2k0/viewform" target="_blank" rel="noreferrer">申込みフォームを開く</a>
+              <a class="button-secondary" href="mailto:izumo.komekome@gmail.com">メールで問い合わせる</a>
+            </div>
+          </article>
+          <aside class="contact-card">
+            <strong>主なご案内</strong>
+            <p>場所: 出西コミュニティセンター付近</p>
+            <p>お問い合わせ: <a href="mailto:izumo.komekome@gmail.com">izumo.komekome@gmail.com</a></p>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>出雲米米クラブ</strong>
+        <small>地元の農家と有志による体験型プログラム</small>
+      </div>
+      <small>&copy; 2026 Izumo Komekome Club</small>
+    </div>
   </footer>
-
 </body>
 </html>
